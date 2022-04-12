@@ -2,6 +2,7 @@
 
 
 how to run ui automation test 
+
     install npm
 
     npm ci
