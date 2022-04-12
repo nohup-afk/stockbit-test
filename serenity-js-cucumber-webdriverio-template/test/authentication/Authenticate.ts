@@ -1,24 +1,19 @@
-import { Task } from '@serenity-js/core';
-import { Click, Enter } from '@serenity-js/webdriverio';
-
+import { Task, Duration } from '@serenity-js/core';
+import { Click, Enter, Wait, isVisible ,isClickable } from '@serenity-js/webdriverio';
+import { Ensure } from '@serenity-js/assertions';
 import { LoginForm } from './ui/LoginForm';
 
-/**
- * This is called a "Task".
- * Use tasks to compose a sequence of one or more activities and give them domain meaning.
- *
- * Here, the actor performs three activities:
- * - enter username
- * - enter password
- * - click on the login button
- *
- * This sequence of activities together means to "log in"
- */
 export const Authenticate = {
     using: (username: string, password: string) =>
-        Task.where(`#actor logs in as ${ username }`,
+        Task.where(`#actor log in as ${username})`,
+            Wait.for(Duration.ofSeconds(5)),
+            Ensure.that(LoginForm.login(), isClickable()),
+            Click.on(LoginForm.login()),
+            Wait.for(Duration.ofSeconds(5)),
+            Ensure.that(LoginForm.usernameField(), isVisible()),
+            Click.on(LoginForm.usernameField()), 
             Enter.theValue(username).into(LoginForm.usernameField()),
             Enter.theValue(password).into(LoginForm.passwordField()),
-            Click.on(LoginForm.loginButton()),
-        ),
+            Click.on(LoginForm.loginButton()),           
+        )
 }
