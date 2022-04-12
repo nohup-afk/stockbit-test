@@ -3,7 +3,14 @@
 
 how to run ui automation test 
 
-    install npm
+    instal  Chocolatey
+
+    To install Node JS, run the following command from the command line or from PowerShell:
+    choco install nodejs
+
+    verify installation
+        node -v
+        npm -v
 
     npm ci
         Running npm ci downloads the Node modules this project depends on, as well as the latest version of chromedriver and the Serenity BDD CLI reporter jar.
