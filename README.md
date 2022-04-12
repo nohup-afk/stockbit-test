@@ -1,17 +1,17 @@
 # stockbit-test
 
 
-how to run ui automation test 
+how to run ui automation test
 
-    instal  Chocolatey
-
-    To install Node JS, run the following command from the command line or from PowerShell:
-    choco install nodejs
+    *To install Node JS, run the following command from the command line or from PowerShell:
+        choco install nodejs
 
     verify installation
         node -v
         npm -v
 
+    change directory to
+        cd serenity-js-cucumber-webdriverio-template   
     npm ci
         Running npm ci downloads the Node modules this project depends on, as well as the latest version of chromedriver and the Serenity BDD CLI reporter jar.
         * working with chrome ver 100
@@ -30,6 +30,9 @@ how to run api test
     pip install robotframework
     robot --version
     pip install robotframework-requests
+
+    change directory to
+        cd robotframework-api-test
 
     robot .
         or
